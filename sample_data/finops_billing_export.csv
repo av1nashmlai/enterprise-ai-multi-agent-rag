@@ -1,0 +1,5 @@
+Service,Cloud,Department,Monthly_Cost_USD,Tagged,Anomaly_Detected
+AWS EC2,AWS,Core-Platform,8450,No,Yes
+Azure Kubernetes Service,Azure,AI-ML-Research,6200,Yes,No
+GCP BigQuery,GCP,Data-Analytics,3100,Yes,No
+Oracle Autonomous DB,OCI,Finance-ERP,7900,No,Yes

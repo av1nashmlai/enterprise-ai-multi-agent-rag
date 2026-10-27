@@ -1,0 +1,5 @@
+INCIDENT LOG: INC-2026-0892
+Date: 2026-10-12 | Severity: HIGH | CSP: AWS (eu-west-2)
+Summary: Public read ACL detected on bucket 'cg-prod-audit-logs-2026'.
+Root Cause: Terraform pipeline bypassed OPA policy check during hotfix deployment.
+Resolution: Automated remediation lambda revoked public ACL in 14 minutes. Lead Auditor recommended mandatory pre-commit Checkov scanning on all repositories.

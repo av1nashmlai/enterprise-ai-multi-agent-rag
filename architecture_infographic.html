@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Infographic - Enterprise AI Knowledge & Decision Support System</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --primary: #38bdf8;
+      --accent: #818cf8;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 2rem 1rem; line-height: 1.5; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    header h1 { font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+    header p { color: var(--text-muted); font-size: 1.1rem; }
+    .badge { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(56, 189, 248, 0.15); color: var(--primary); border: 1px solid var(--primary); border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3); }
+    .card h3 { font-size: 1.2rem; color: var(--accent); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .card p, .card ul { color: var(--text-muted); font-size: 0.95rem; }
+    .card ul { list-style-position: inside; margin-top: 0.5rem; }
+    .card li { margin-bottom: 0.4rem; }
+
+    .workflow-section { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem; margin-bottom: 2.5rem; }
+    .workflow-title { font-size: 1.5rem; color: var(--primary); margin-bottom: 1.5rem; text-align: center; }
+    
+    .flow-steps { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; position: relative; }
+    .step-box { flex: 1; min-width: 220px; background: #0f172a; border: 1px solid #475569; border-radius: 8px; padding: 1.2rem; text-align: center; }
+    .step-box h4 { color: var(--success); margin-bottom: 0.4rem; font-size: 1.05rem; }
+    .step-box span { font-size: 0.85rem; color: var(--text-muted); display: block; }
+    .arrow { font-size: 1.5rem; color: var(--primary); font-weight: bold; }
+
+    .limitations-section { background: rgba(251, 191, 36, 0.05); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 12px; padding: 1.5rem; }
+    .limitations-section h3 { color: var(--warning); margin-bottom: 1rem; font-size: 1.25rem; }
+
+    footer { text-align: center; margin-top: 3rem; color: var(--text-muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Illinois Tech & edureka! Capstone Project</div>
+      <h1>Enterprise AI Knowledge & Decision Support System</h1>
+      <p>Autonomous Multi-Agent RAG Platform for Heterogeneous Enterprise Documents</p>
+    </header>
+
+    <!-- Top Architecture Pillars -->
+    <div class="grid">
+      <div class="card">
+        <h3>📥 1. Multi-Format Ingestion</h3>
+        <p>Unified parsing layer supporting 4 enterprise file types with rich schema extraction:</p>
+        <ul>
+          <li><strong>PDF:</strong> Page-aware text parsing via <code>pypdf</code>.</li>
+          <li><strong>TXT:</strong> Unstructured raw log parsing.</li>
+          <li><strong>CSV:</strong> Key-value row serializer via <code>pandas</code>.</li>
+          <li><strong>Excel (XLSX):</strong> Multi-sheet extraction via <code>openpyxl</code>.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🗄️ 2. Knowledge Store</h3>
+        <p>High-efficiency chunking & local vector database:</p>
+        <ul>
+          <li><strong>Chunking:</strong> <code>RecursiveCharacterTextSplitter</code> (800 tokens, 150 overlap).</li>
+          <li><strong>Vector Store:</strong> Local persistent <strong>ChromaDB</strong>.</li>
+          <li><strong>Dual Embeddings:</strong> NVIDIA NIM (<code>nemotron-3-embed-1b</code>) & OpenAI (<code>text-embedding-3-small</code>).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🛡️ 3. Safety & Guardrails</h3>
+        <p>Comprehensive pre- and post-processing reliability controls:</p>
+        <ul>
+          <li><strong>Prompt Injection:</strong> Regex screening blocks adversarial prompts.</li>
+          <li><strong>Privacy Filter:</strong> Blocks sensitive credentials & PII requests.</li>
+          <li><strong>Hallucination Audit:</strong> Validator Agent grades factual adherence.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Agent Workflow Flowchart -->
+    <div class="workflow-section">
+      <div class="workflow-title">🤖 Autonomous Multi-Agent Reasoning Engine (LangGraph)</div>
+      <div class="flow-steps">
+        <div class="step-box">
+          <h4>1. Planner Agent</h4>
+          <span>Decomposes complex enterprise prompts into 1-3 atomic search sub-queries.</span>
+        </div>
+        <div class="arrow">➔</div>
+        <div class="step-box">
+          <h4>2. Retriever Agent</h4>
+          <span>Executes <code>VectorSearchTool</code> across ChromaDB & catalogs source provenance.</span>
+        </div>
+        <div class="arrow">➔</div>
+        <div class="step-box">
+          <h4>3. Reasoning Agent</h4>
+          <span>Deductive synthesis across context with mandatory inline citations.</span>
+        </div>
+        <div class="arrow">➔</div>
+        <div class="step-box">
+          <h4>4. Validator Agent</h4>
+          <span>Executes <code>HallucinationAuditTool</code>; assigns <code>PASSED</code> / <code>FLAGGED</code> badge.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Limitations and Challenges -->
+    <div class="limitations-section">
+      <h3>⚠️ Key Engineering Challenges & Mitigations</h3>
+      <div class="grid" style="margin-bottom: 0;">
+        <div>
+          <strong>Tabular vs. Semantic Search:</strong> Vector embeddings struggle with dynamic SQL aggregations (SUM/AVG). <em>Mitigation:</em> Headers serialized into each row chunk to retain full context.
+        </div>
+        <div>
+          <strong>Remote Model Lifecycle:</strong> Cloud endpoints deprecate models over time. <em>Mitigation:</em> Automatic fallback cascades across active NVIDIA NIM / OpenAI endpoints.
+        </div>
+        <div>
+          <strong>Multi-Agent Latency:</strong> 4 sequential agent steps increase response time. <em>Mitigation:</em> Live status streaming via <code>st.status</code> for real-time visibility.
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Generative AI and Machine Learning Capstone | Evaluator Review Infographic | Illinois Tech & Edureka!</p>
+    </footer>
+  </div>
+</body>
+</html>

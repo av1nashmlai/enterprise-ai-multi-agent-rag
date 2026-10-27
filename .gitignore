@@ -1,0 +1,32 @@
+# Secrets & Environment Variables (NEVER commit live API keys)
+.env
+.env.*
+!.env.example
+
+# Python Virtual Environments
+venv/
+.venv/
+env/
+
+# Python Bytecode & Test/Tool Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local Runtime ChromaDB Data (keep folder placeholder only)
+vector_db/*
+!vector_db/.gitkeep
+
+# Temporary Office Lock Files & OS Metadata
+~$*
+.DS_Store
+Thumbs.db
+
+# Omit internal LMS submission & local flash-drive notes from public GitHub
+SUBMISSION_INSTRUCTIONS.md
+TEST_ON_ANOTHER_PC.txt
